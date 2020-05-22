@@ -18,7 +18,7 @@ db.collection('people').onSnapshot(snapshot => {
       renderRecipe(change.doc.data(), change.doc.id);
     }
     if (change.type === 'removed') {
-      // remove the document data from the web page
+      removeRecipe(change.doc.id);
     }
   });
 });
@@ -40,3 +40,13 @@ form.addEventListener('submit', evt => {
   form.firstname.value = '';
   form.lastname.value = '';
 });
+
+// remove a recipe
+const recipeContainer = document.querySelector('.recipes');
+recipeContainer.addEventListener('click', evt => {
+  if (evt.target.tagName === 'I') {
+    const id = evt.target.getAttribute('data-id');
+    console.log(id);
+    db.collection('people').doc(id).delete();
+  }
+})
