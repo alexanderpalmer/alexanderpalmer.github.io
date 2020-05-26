@@ -15,15 +15,15 @@ db.collection('people').onSnapshot(snapshot => {
   snapshot.docChanges().forEach(change => {
     if (change.type === 'added') {
       console.log(change);
-      renderRecipe(change.doc.data(), change.doc.id);
+      renderPerson(change.doc.data(), change.doc.id);
     }
     if (change.type === 'removed') {
-      removeRecipe(change.doc.id);
+      removePerson(change.doc.id);
     }
   });
 });
 
-// add new recipe
+// add new person
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
   evt.preventDefault();
@@ -31,7 +31,7 @@ form.addEventListener('submit', evt => {
   const person = {
     firstname: form.firstname.value,
     lastname: form.lastname.value,
-    age: 0
+    age: form.age.value
   };
 
   db.collection('people').add(person)
@@ -39,10 +39,11 @@ form.addEventListener('submit', evt => {
 
   form.firstname.value = '';
   form.lastname.value = '';
+  form.age.value = '';
 });
 
-// remove a recipe
-const recipeContainer = document.querySelector('.recipes');
+// remove a person
+const recipeContainer = document.querySelector('.people');
 recipeContainer.addEventListener('click', evt => {
   if (evt.target.tagName === 'I') {
     const id = evt.target.getAttribute('data-id');

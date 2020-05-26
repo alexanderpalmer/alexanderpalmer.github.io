@@ -25,11 +25,11 @@ nav .sidenav-trigger {
 }
 
 /* recipe styles */
-.recipes {
+.people {
   margin-top: 20px;
 }
 
-.card-panel.recipe {
+.card-panel.person {
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0px 1px 3px rgba(90, 90, 90, 0.1);
@@ -39,32 +39,33 @@ nav .sidenav-trigger {
   position: relative;
 }
 
-.recipe img {
+.person img {
   grid-area: image;
   max-width: 60px;
+  padding-top: 5px;
 }
 
-.recipe-details {
+.person-details {
   grid-area: details;
   margin-top: 6px;
 }
 
-.recipe-delete {
+.person-delete {
   grid-area: delete;
   position: absolute;
   bottom: 0px;
   right: 0px;
 }
 
-.recipe-delete i {
+.person-delete i {
   font-size: 22px;
 }
 
-.recipe-title {
+.person-firstname {
   font-weight: bold;
 }
 
-.recipe-ingredients {
+.person-lastname .person-age {
   font-size: 0.8em;
 }
 
