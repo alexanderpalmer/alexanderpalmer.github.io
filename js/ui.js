@@ -36,5 +36,5 @@ const renderPerson = (data, id) => {
 const removePerson = (id) => {
   const person = document.querySelector(`.person[data-id=${id}]`);
   console.log(person);
-  recipe.remove();
+  person.remove();
 };
