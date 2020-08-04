@@ -1,0 +1,17 @@
+@media all and (display-mode: standalone) {
+  h1 {
+    color: red;
+  }
+}
+
+@media all and (display-mode: minimal-ui) {
+  h1 {
+    color: green;
+  }
+}
+
+@media all and (display-mode: browser) {
+  h1 {
+    color: yellow;
+  }
+}
